@@ -48,24 +48,33 @@ let onClickSquare = function (event) {
 let validateIndex = function () {
   for (let i = 0; i < 3; i++) {
     if (
-      (indices[i][0] === indices[i][1] &&
-        indices[i][1] === indices[i][2] &&
-        indices[i][2] === indices[i][0] &&
-        indices[i][0] !== null &&
-        indices[i][1] !== null &&
-        indices[i][2] !== null) ||
-      (indices[0][i] === indices[1][i] &&
-        indices[1][i] === indices[2][i] &&
-        indices[2][i] === indices[0][i] &&
-        indices[0][i] !== null &&
-        indices[1][i] !== null &&
-        indices[2][i] !== null) ||
-      (indices[0][0] === indices[1][1] &&
-        indices[1][1] === indices[2][2] &&
-        indices[0][0] !== null &&
-        indices[1][1] !== null &&
-        indices[2][2] !== null)
+      indices[i][0] === indices[i][1] &&
+      indices[i][1] === indices[i][2] &&
+      indices[i][2] === indices[i][0] &&
+      indices[i][0] !== null &&
+      indices[i][1] !== null &&
+      indices[i][2] !== null
     ) {
+      colorRow(i);
+      return true;
+    } else if (
+      indices[0][i] === indices[1][i] &&
+      indices[1][i] === indices[2][i] &&
+      indices[2][i] === indices[0][i] &&
+      indices[0][i] !== null &&
+      indices[1][i] !== null &&
+      indices[2][i] !== null
+    ) {
+      colorColumn(i);
+      return true;
+    } else if (
+      indices[0][0] === indices[1][1] &&
+      indices[1][1] === indices[2][2] &&
+      indices[0][0] !== null &&
+      indices[1][1] !== null &&
+      indices[2][2] !== null
+    ) {
+      colorDiagonal();
       return true;
     }
   }
@@ -83,4 +92,37 @@ window.onload = function () {
 
 let reset = function () {
   location.reload();
+};
+
+let colorRow = function (i) {
+  for (let t = 0; t < 3; t++) {
+    setTimeout(function () {
+      document.getElementById("square" + i + t).style.background = "#4CAF50";
+    }, (t + 1) * 100);
+  }
+  //   document.getElementById("square" + i + "0").style.background = "#4CAF50";
+  //   document.getElementById("square" + i + "1").style.background = "#4CAF50";
+  //   document.getElementById("square" + i + "2").style.background = "#4CAF50";
+};
+
+let colorColumn = function (i) {
+  for (let t = 0; t < 3; t++) {
+    setTimeout(function () {
+      document.getElementById("square" + t + i).style.background = "#4CAF50";
+    }, (t + 1) * 100);
+  }
+  //   document.getElementById("square0" + i).style.background = "#4CAF50";
+  //   document.getElementById("square1" + i).style.background = "#4CAF50";
+  //   document.getElementById("square2" + i).style.background = "#4CAF50";
+};
+
+let colorDiagonal = function () {
+  for (let t = 0; t < 3; t++) {
+    setTimeout(function () {
+      document.getElementById("square" + t + t).style.background = "#4CAF50";
+    }, (t + 1) * 100);
+  }
+  //   document.getElementById("square00").style.background = "#4CAF50";
+  //   document.getElementById("square11").style.background = "#4CAF50";
+  //   document.getElementById("square22").style.background = "#4CAF50";
 };
