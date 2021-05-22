@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="EN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Tic Tac Toe for kids" />
+    <meta name="keywords" content="Tic, Tac, Toe, Game, Kids, Two Player" />
+    <meta name="author" content="Ajith G" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <script src="tictactoe.js"></script>
+    <link rel="stylesheet" href="./tictactoe.css" />
+</head>
+
+<body>
+    <h1>Tic Tac Toe</h1>
+    <div>
+        <h2 id="playerNumber">Current Player: <b>Player 1</b></h2>
+        <button onclick="reset()">Reset Game</button>
+        <div id="container">
+            <div id="row1">
+                <div id="square00" style="border-radius: 10px 0px 0px 0px;"></div>
+                <div id="square10"></div>
+                <div id="square20" style="border-radius: 0px 0px 0px 10px;"></div>
+            </div>
+            <div id="row2">
+                <div id="square01"></div>
+                <div id="square11"></div>
+                <div id="square21"></div>
+            </div>
+            <div id="row3">
+                <div id="square02" style="border-radius: 0px 10px 0px 0px;"></div>
+                <div id="square12"></div>
+                <div id="square22" style="border-radius: 0px 0px 10px 0px;"></div>
+            </div>
+        </div>
+
+</body>
+
+</html>
