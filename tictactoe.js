@@ -76,6 +76,15 @@ let validateIndex = function () {
     ) {
       colorDiagonal();
       return true;
+    } else if (
+      indices[0][2] === indices[1][1] &&
+      indices[1][1] === indices[2][0] &&
+      indices[0][2] !== null &&
+      indices[1][1] !== null &&
+      indices[2][0] !== null
+    ) {
+      colorSecondaryDiagonal();
+      return true;
     }
   }
   return false;
@@ -125,4 +134,13 @@ let colorDiagonal = function () {
   //   document.getElementById("square00").style.background = "#4CAF50";
   //   document.getElementById("square11").style.background = "#4CAF50";
   //   document.getElementById("square22").style.background = "#4CAF50";
+};
+
+let colorSecondaryDiagonal = function () {
+  for (let t = 0; t < 3; t++) {
+    setTimeout(function () {
+      document.getElementById("square" + t + (2 - t)).style.background =
+        "#4CAF50";
+    }, (t + 1) * 100);
+  }
 };
